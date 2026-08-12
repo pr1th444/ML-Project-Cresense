@@ -1,0 +1,105 @@
+/* ============================================================
+   CRESENSE — GLOBAL THEME
+   ------------------------------------------------------------
+   This is the single place where colours, fonts and radii are
+   defined. Every component uses these tokens, never raw hex
+   values. Change a value here and the whole app follows.
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+  /* --- Neutrals: medium grey -> black ------------------------
+     "ink" is our neutral ramp. Low numbers = light, high = dark.
+     ink-100 (#E5E3E2) is the app background from the brief.
+     ink-800 (#2B292B) is the dark surface (sidebar).
+     ink-950 (#111111) is near-black text.                      */
+  --color-ink-50: #f5f4f3;
+  --color-ink-100: #e5e3e2;
+  --color-ink-200: #d6d3d2;
+  --color-ink-300: #bfbbba;
+  --color-ink-400: #97928f;
+  --color-ink-500: #6f6a68;
+  --color-ink-600: #514d4d;
+  --color-ink-700: #3a3739;
+  --color-ink-800: #2b292b;
+  --color-ink-900: #1d1c1d;
+  --color-ink-950: #111111;
+
+  /* --- Accents: muted plum + rose taupe ----------------------
+     plum-600 is the primary accent (selection, emphasis, risk).
+     plum-400 is rose taupe (secondary series, softer emphasis). */
+  --color-plum-50: #f4eff1;
+  --color-plum-100: #e6dbe0;
+  --color-plum-300: #a98d97;
+  --color-plum-400: #8a6b76; /* rose taupe */
+  --color-plum-600: #65495a; /* muted plum  */
+  --color-plum-700: #523a49;
+  --color-plum-900: #33232c;
+
+  /* --- Typography -------------------------------------------- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* --- Shape --------------------------------------------------
+     Deliberately small. Financial tooling reads as sharp, not soft. */
+  --radius-panel: 3px;
+}
+
+/* ---------- Base element styles ---------- */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-ink-100);
+    color: var(--color-ink-950);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  /* Keyboard users must always be able to see where they are. */
+  :focus-visible {
+    outline: 2px solid var(--color-plum-600);
+    outline-offset: 2px;
+  }
+
+  /* Respect the OS "reduce motion" setting. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---------- Small reusable utilities ---------- */
+@layer components {
+  /* Numbers in a data table must line up vertically.
+     Use this on any figure: amounts, scores, IDs, percentages. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* The small uppercase labels above values and section titles. */
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+  }
+
+  /* The standard white content panel used across every page. */
+  .panel {
+    background-color: #ffffff;
+    border: 1px solid var(--color-ink-200);
+    border-radius: var(--radius-panel);
+  }
+}
