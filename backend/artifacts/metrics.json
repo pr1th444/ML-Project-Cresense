@@ -1,0 +1,88 @@
+{
+  "models": [
+    {
+      "name": "Random Forest",
+      "accuracy": 99.979,
+      "precision": 100.0,
+      "recall": 88.333,
+      "f1": 93.805,
+      "rocAuc": 99.994,
+      "prAuc": 98.072,
+      "threshold": 0.4648,
+      "confusion": {
+        "truePositive": 53,
+        "falsePositive": 0,
+        "falseNegative": 7,
+        "trueNegative": 32940
+      },
+      "falsePositiveRate": 0.0,
+      "type": "Supervised ensemble",
+      "role": "Baseline"
+    },
+    {
+      "name": "XGBoost",
+      "accuracy": 99.982,
+      "precision": 96.552,
+      "recall": 93.333,
+      "f1": 94.915,
+      "rocAuc": 99.993,
+      "prAuc": 97.361,
+      "threshold": 0.9846,
+      "confusion": {
+        "truePositive": 56,
+        "falsePositive": 2,
+        "falseNegative": 4,
+        "trueNegative": 32938
+      },
+      "falsePositiveRate": 0.0061,
+      "type": "Gradient boosting",
+      "role": "Candidate"
+    },
+    {
+      "name": "CatBoost",
+      "accuracy": 99.973,
+      "precision": 93.22,
+      "recall": 91.667,
+      "f1": 92.437,
+      "rocAuc": 99.878,
+      "prAuc": 91.075,
+      "threshold": 0.6809,
+      "confusion": {
+        "truePositive": 55,
+        "falsePositive": 4,
+        "falseNegative": 5,
+        "trueNegative": 32936
+      },
+      "falsePositiveRate": 0.0121,
+      "type": "Gradient boosting",
+      "role": "Candidate"
+    },
+    {
+      "name": "Hybrid Ensemble",
+      "accuracy": 99.976,
+      "precision": 91.935,
+      "recall": 95.0,
+      "f1": 93.443,
+      "rocAuc": 99.977,
+      "prAuc": 96.438,
+      "threshold": 0.5845,
+      "confusion": {
+        "truePositive": 57,
+        "falsePositive": 5,
+        "falseNegative": 3,
+        "trueNegative": 32935
+      },
+      "falsePositiveRate": 0.0152,
+      "type": "Autoencoder + XGBoost + CatBoost",
+      "role": "Proposed architecture"
+    }
+  ],
+  "selected": "Random Forest",
+  "ensembleWeights": {
+    "xgb": 0.1,
+    "cat": 0.65,
+    "ae": 0.25
+  },
+  "threshold": 0.5845,
+  "validationPrAuc": 97.682
+}

@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Trained models and data — too large for GitHub
+backend/artifacts/*.joblib
+backend/artifacts/*.pkl
+backend/artifacts/shap.json
+*.csv
+
+# Environment
+.env
+.DS_Store
